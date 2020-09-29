@@ -1,0 +1,24 @@
+<app-header-title distinctTitle="Add" title="new post"></app-header-title>
+<form [formGroup] = "addBlogForm">
+  <div class="form-row">
+    <mat-form-field class="full-width-field" appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" max="255" placeholder="Title" type="text" />
+      <mat-error *ngIf="form.title.errors && form.title.errors.required">
+          Please input valid Title
+      </mat-error>
+    </mat-form-field>
+    <textarea [froalaEditor] formControlName="content">Hello, Froala!</textarea>
+    <div class="category-field">
+      <mat-form-field appearance="outline" class="category">
+        <mat-label>Category</mat-label>
+        <mat-select>
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button type="button" mat-icon-button aria-label="Add new category button" (click)="openCategoryDialog()">
+          <mat-icon>add_circle_outline</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

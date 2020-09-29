@@ -1,0 +1,129 @@
+.content
+  display: flex
+  flex-direction: row
+  z-index: 50
+  height: 650px
+  width: 1400px
+
+  .my-card
+    width: 480px
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05)
+    z-index: 1
+
+    mat-card-content
+      .profile-header
+        text-align: center
+
+        h1
+          margin-bottom: 0
+        h2
+          line-height: 12px
+          color: #7BC0F6
+          font-size: 14px
+          font-weight: 400
+
+    .profile-img
+      position: relative
+      overflow: hidden
+
+      img
+        width: 100%
+        height: 400px
+
+      &:before
+        content: ''
+        width: 55%
+        height: 100px
+        background: #FFF
+        position: absolute
+        transform: rotate(12deg)
+        bottom: -50px
+        left: -5%
+        z-index: 10
+
+
+      &:after
+        content: ''
+        background: #FFF
+        position: absolute
+        bottom: -50px
+        width: 55%
+        height: 100px
+        right: -5%
+        transform: rotate(-12deg)
+
+  .inner-content
+    margin-top: 10px
+    margin-bottom: 10px
+    padding-left: 35px
+    padding-right: 35px
+    width: 620px
+    border-radius: 0px 5px 5px 0px
+    overflow: auto
+
+
+  .inner-content::-webkit-scrollbar
+    width: 10px
+
+  .inner-content::-webkit-scrollbar-track
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+    border-radius: 10px
+
+  .inner-content::-webkit-scrollbar-thumb
+    border-radius: 10px
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)
+
+.profile-socials
+  height: 100px
+
+.profile-buttons
+  display: flex
+  flex-direction: row
+  position: relative
+  height: 60px
+
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 1px
+    background: radial-gradient(ellipse at center, #dddddd 0%, rgba(255, 255, 255, 0) 70%)
+
+  .profile-buttons-left
+    flex-grow: 1
+    position: relative
+
+    &:before
+      content: ''
+      position: absolute
+      right: 0
+      top: 0
+      height: 100%
+      width: 1px
+      background: radial-gradient(ellipse at top, #dddddd 0%, rgba(255, 255, 255, 0) 70%)
+
+    a
+      width: 100%
+      height: 100%
+      text-transform: uppercase
+      line-height: 60px
+
+      mat-icon
+        font-size: 18px
+        margin-left: 10px
+
+  .profile-buttons-right
+    flex-grow: 1
+
+    a
+      width: 100%
+      height: 100%
+      text-transform: uppercase
+      line-height: 60px
+
+      mat-icon
+        font-size: 18px
+        margin-left: 10px
+

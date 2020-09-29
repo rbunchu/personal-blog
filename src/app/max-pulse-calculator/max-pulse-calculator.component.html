@@ -1,0 +1,69 @@
+<mat-card>
+  <mat-card-title>Max Heart Rate Calculator</mat-card-title>
+  <form class="heart-rate-form" *ngIf="!showResult" [formGroup] = "calculatorForm">
+    <mat-button-toggle-group formControlName="personType">
+      <mat-button-toggle value="male" class="male-button">
+        <img src="\assets\img\male_icon.png">
+        <div>Male</div>
+      </mat-button-toggle>
+      <mat-button-toggle value="female" class="female-button">
+        <img src="\assets\img\female_icon.png">
+        <div>Female</div>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" type="number" max="120" placeholder="Input your age" />
+        <mat-error *ngIf="form.age.errors && form.age.errors.required">
+            Please enter a valid age
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Weight</mat-label>
+        <input matInput type="number" max="400" placeholder="Input your weight" formControlName="weight" />
+        <mat-error *ngIf="form.weight.errors && form.weight.errors.required">
+            Please enter a valid weight
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="form-row">
+      <mat-label>Resting Heart Rate</mat-label>
+      <input matInput type="number" max="260" placeholder="Input your heart rate" formControlName="restingHeartRate" />
+      <mat-error *ngIf="form.restingHeartRate.errors && form.restingHeartRate.errors.required">
+            Please enter a valid resting heart rate
+        </mat-error>
+    </mat-form-field>
+
+    <div class="heart-rate-formulas">
+      <span>Please select calculation formula:</span>
+      <mat-radio-group aria-label="Select an option" formControlName="heartRateFormula">
+        <mat-radio-button *ngFor="let formula of heartRateFormulas" value="{{formula.name}}">
+          {{formula.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <button mat-raised-button class="calculate-button" (click)="calculateButtonClick()">Calculate</button>
+  </form>
+  <div *ngIf="showResult" class="results">
+    <div>
+      <div class="result-max-heart-rate">
+        Max Heart rate according to <b> {{form.heartRateFormula.value}} </b> formula: <b> {{personData.maxHeartRate}} </b> beats per minute.
+      </div>
+      <div class="optimal-heart-rate">
+        Optimal training heart rate according to Karvonen formula using <b>{{form.heartRateFormula.value}}</b>: <b>{{minTraining}}</b> to <b>{{maxTraining}}</b> beats per minute.
+      </div>
+      <div class="heart-rate-zones">
+        <div class="heart-rate-zone {{zone.cssClass}}" *ngFor="let zone of heartRateZones">
+          <div class="zone-intro">
+            <div class="zone-name">{{zone.zone}}</div>
+            <div class="zone-description">{{zone.zoneDescription(personData.maxHeartRate)}}</div>
+          </div>
+          <div class="image"></div>
+          <div class="zone-merits">{{zone.descriptionMerits}}</div>
+        </div>
+      </div>
+    </div>
+    <button mat-raised-button (click)="backButtonClick()">Back</button>
+  </div>
+</mat-card>

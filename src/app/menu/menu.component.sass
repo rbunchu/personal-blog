@@ -1,0 +1,49 @@
+menu
+  width: 72px
+  height: 250px
+  background: white
+  border-radius: 5px
+  font-size: 10px
+  display: flex
+  flex-direction: column
+  z-index: 100
+  margin-right: 10px
+  margin-top: 20px
+  cursor: pointer
+
+  a
+    display: flex
+    flex-direction: column
+    align-items: center
+    height: 72px
+    width: inherit
+    padding-top: 5px
+    padding-bottom: 5px
+    font-size: 11px
+    text-transform: uppercase
+    font-weight: 500
+    font-family: 'Poppins'
+    border: none
+    background: white
+    transition: color 0.3s ease 0s
+    text-decoration: none
+
+
+    &:visited
+      color: #323232
+    &:link
+      color: #323232
+    &:hover
+      color: #67DBE9
+
+
+  a.active
+      color: #67DBE9
+
+  a:first-child
+    border-radius: 5px 5px 0px 0px
+
+  a:last-child
+    border-radius: 0px 0px 5px 5px
+
+

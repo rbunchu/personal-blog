@@ -1,0 +1,53 @@
+<h2>
+  <span class="circle"></span>
+  <span class="distinct">Get</span>
+    in Touch
+</h2>
+<mat-divider></mat-divider>
+<app-open-layer-map [zoom]='12' [lon] = '15.852230' [lat] = '50.904209'></app-open-layer-map>
+<div class="person-contact-container">
+  <div class="person-contact" *ngFor="let contact of contactInfo">
+    <div class="contact-title">{{contact.fieldName}}.....</div>
+    <div class="contact-value">{{contact.fieldValue}}</div>
+  </div>
+</div>
+<h2>
+  <span class="circle"></span>
+  <span class="distinct">Contact</span>
+    Form
+</h2>
+<mat-divider></mat-divider>
+<form [formGroup] = "contactForm">
+  <div class="form-row">
+    <mat-form-field appearance="outline">
+      <mat-label>Full Name</mat-label>
+      <input matInput formControlName="fullName" max="120" placeholder="Full Name" type="text" />
+      <mat-error *ngIf="form.fullName.errors && form.fullName.errors.required">
+          Please input valid Full Name
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email Address</mat-label>
+      <input matInput placeholder="Email Address" formControlName="emailAddress" type="email" />
+      <mat-error *ngIf="form.emailAddress.errors && form.emailAddress.errors.required">
+          Please enter a valid Email Address
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="form-row">
+    <mat-form-field appearance="outline">
+      <textarea matInput formControlName="messageContent" max="500" placeholder="Your message"></textarea>
+      <mat-error *ngIf="form.messageContent.errors && form.messageContent.errors.required">
+          Please enter a valid Message
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="form-row">
+    <re-captcha (resolved)="resolved($event)"
+              formControlName="recaptcha"
+              siteKey="6Le_JyMUAAAAAE6_QIO5vnkfHofPRXeuBJ8wFEs9">
+    </re-captcha>
+    <button mat-raised-button (click)="sendButtonClick()">Send Message</button>
+  </div>
+</form>
+

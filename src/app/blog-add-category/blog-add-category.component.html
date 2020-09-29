@@ -1,0 +1,16 @@
+<app-header-title distinctTitle="Add" title="new category"></app-header-title>
+<form [formGroup] = "addCategoryForm">
+  <div class="form-row">
+    <mat-form-field class="full-width-field" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" max="60" placeholder="Name" type="text" />
+      <mat-error *ngIf="form.name.errors && form.name.errors.required">
+          Please input valid Name
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="form-row">
+    <button mat-raised-button (click)="addCategory">Add</button>
+    <button type="button" mat-raised-button (click)="onNoClick()">Cancel</button>
+  </div>
+</form>

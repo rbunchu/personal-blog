@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="content">
+    <app-menu></app-menu>
+    <mat-card class="my-card">
+      <div class="profile-img">
+        <img src="/assets/img/temp.jpg" alt="profile image" />
+      </div>
+      <mat-card-content>
+        <div class="profile-header">
+          <h1>Marcin Kamuda</h1>
+          <h2>.Net Developer</h2>
+          <div class="profile-socials"></div>
+        </div>
+        <div class="profile-buttons">
+          <div class="profile-buttons-left">
+            <a mat-button href="#">Download CV <mat-icon>save_alt</mat-icon></a>
+          </div>
+          <div class="profile-buttons-right">
+            <a mat-button href="#">Contact Me <mat-icon>email</mat-icon></a>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="inner-content">
+      <router-outlet></router-outlet>
+    </mat-card>
+  </div>
+</div>

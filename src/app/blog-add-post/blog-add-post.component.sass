@@ -1,0 +1,30 @@
+@import '../variables'
+
+h2
+  position: relative
+
+.distinct
+  color: $theme-font-color
+
+.circle
+  &:before
+    content: ''
+    width: 30px
+    height: 30px
+    top: 5px
+    left: -15px
+    background-image: linear-gradient(to bottom left, #9DE0E8, white)
+    opacity: 0.5
+    position: absolute
+    border-radius: 20px
+
+.full-width-field
+  width: 100%
+
+.category
+  margin-top: 20px
+
+.category-field
+  display: flex
+  flex-direction: row
+  align-items: center

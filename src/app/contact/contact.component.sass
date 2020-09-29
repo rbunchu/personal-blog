@@ -1,0 +1,81 @@
+@import '../variables'
+
+h2
+  position: relative
+
+.distinct
+  color: $theme-font-color
+
+.circle
+  &:before
+    content: ''
+    width: 30px
+    height: 30px
+    top: 5px
+    left: -15px
+    background-image: linear-gradient(to bottom left, #9DE0E8, white)
+    opacity: 0.5
+    position: absolute
+    border-radius: 20px
+
+.contact-info
+  margin: 30px 0
+
+.person-contact-container
+  margin: 20px 0
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+
+.person-contact
+  width: 50%
+  display: flex
+  flex-direction: row
+  margin: 5px 0
+  position: relative
+  height: 30px
+
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 1px
+    background: radial-gradient(ellipse at center, #dddddd 0%, rgba(255, 255, 255, 0) 70%)
+
+
+.contact-title
+  font-weight: bold
+  background-color: $theme-font-color
+  color: white
+  border-radius: 2px
+  padding: 2px 15px
+  margin-right: 20px
+  height: 20px
+
+form
+  display: flex
+  flex-direction: column
+  margin-top: 30px
+  margin-bottom: 30px
+
+  .form-row
+    display: flex
+    flex-direction: row
+
+    &:lt-child
+      margin-top: 20px
+
+    mat-form-field
+      width: 100%
+      margin-right: 30px
+
+    button
+      width: 40%
+      height: 40px
+      align-self: center
+
+    re-captcha
+      margin-right: 30px
+      width: 50%
